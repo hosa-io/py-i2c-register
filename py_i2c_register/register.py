@@ -121,6 +121,7 @@ class Register():
                     managing_segment[actual_bit_i].append(segment.name)
 
                     bits[bit_i + segment.lsb_i] = segment.bits[bit_i]
+                    #print(bits)
 
             # Check bits are continuous and only 1 segment controls each bit
             cont_check_err_is = []  # Indexes where bit array is not continuous
@@ -155,6 +156,7 @@ class Register():
             for key in bits:
                 bit = bits[key]
                 bits_arr.append(bit)
+                #print(bits_arr)
 
             # Create bytes array
             bytes_arr = RegisterSegment.to_padded_byte_arr(bits_arr)

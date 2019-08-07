@@ -28,8 +28,10 @@ class RegisterSegment():
 
         bits = []
         for bit in format(number, "0{}b".format(size)):
-            bits.insert(0, int(bit))
-
+            bits.append( int(bit))
+            #bits.insert(0, int(bit))
+	
+        #print(number, size, bits)
         return bits
 
     """Converts an array of bits into an integer
@@ -43,7 +45,9 @@ class RegisterSegment():
     def to_int(bits):
         out = 0
         l = len(bits)
-        for bit in reversed(bits):
+        for bit in bits:
+        #for bit in reversed(bits):
+           # print(out)
             out = (out << 1) | bit
 
         return out
@@ -122,6 +126,7 @@ class RegisterSegment():
 
             byte = RegisterSegment.to_int(byte_slice)
             bytes.append(byte)
+            #print(bytes)
 
             # Add 8 to lower slice bound for next byte
             byte_slice_lower += 8
